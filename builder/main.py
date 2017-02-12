@@ -58,7 +58,6 @@ env.Replace(
               "-nostartfiles",
               "-nostdlib",
               "-nodefaultlibs", \
-              "-Wl,-Map=output.map",
               "-Wl,--gc-sections,--no-warn-mismatch,--build-id=none"],
 
     CPPDEFINES=["VERSION=\"v1.0\""],
