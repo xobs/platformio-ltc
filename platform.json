@@ -1,42 +1,38 @@
 {
-  "name": "myplatform",
-  "title": "My Platform",
-  "description": "My custom development platform",
-  "url": "http://example.com",
-  "homepage": "http://platformio.org/platforms/myplatform",
-  "license": "Apache-2.0",
+  "name": "ltc",
+  "title": "Love-to-Code",
+  "description": "Love-to-Code modulated audio board",
+  "url": "http://ltc.chibitronics.com",
+  "homepage": "http://chibitronics.com",
+  "license": "MIT",
   "engines": {
     "platformio": "~3.0.0",
     "scons": ">=2.3.0,<2.6.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/platformio/platform-myplatform.git"
+    "url": "https://github.com/xobs/platformio-ltc.git"
   },
-  "version": "0.0.0",
+  "version": "1.0.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "https://sourceforge.net/projects/platformio-storage/files/packages/manifest.json/download",
     "http://dl.platformio.org/packages/manifest.json",
     {
-      "framework-%FRAMEWORK_NAME_1%": [
+      "framework-ltc": [
         {
-          "url": "http://dl.example.com/packages/framework-%FRAMEWORK_NAME_1%-1.10607.0.tar.gz",
-          "sha1": "adce2cd30a830d71cb6572575bf08461b7b73c07",
-          "version": "1.10607.0",
+          "url": "https://codeload.github.com/xobs/framework-ltc/zip/v1.0.0",
+          "sha1": "1a0fc1c24b8228a12ec214c5ad5d95435e9cc817",
+          "version": "1.0.0",
           "system": "*"
         }
       ]
     }
   ],
   "frameworks": {
-    "%FRAMEWORK_NAME_1%": {
-      "package": "framework-%FRAMEWORK_NAME_1%",
-      "script": "builder/frameworks/%FRAMEWORK_NAME_1%.py"
-    },
-    "%FRAMEWORK_NAME_N%": {
-      "package": "framework-%FRAMEWORK_NAME_N%",
-      "script": "builder/frameworks/%FRAMEWORK_NAME_N%.py"
+    "ltc": {
+      "package": "framework-ltc",
+      "script": "builder/frameworks/ltc.py"
     }
   },
   "packages": {
@@ -44,20 +40,10 @@
       "type": "toolchain",
       "version": ">=1.40803.0,<1.40805.0"
     },
-    "framework-%FRAMEWORK_NAME_1%": {
+    "framework-ltc": {
       "type": "framework",
-      "optional": true,
-      "version": "~1.10607.0"
-    },
-    "framework-%FRAMEWORK_NAME_N%": {
-      "type": "framework",
-      "optional": true,
-      "version": "~1.117.0"
-    },
-    "tool-direct-vcs-url": {
-      "type": "framework",
-      "optional": true,
-      "version": "https://github.com/user/repo.git"
+      "optional": false,
+      "version": "~1.0.0"
     }
   }
 }

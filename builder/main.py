@@ -1,6 +1,5 @@
 """
-    Build script for test.py
-    test-builder.py
+    Build script for ltc
 """
 
 from os.path import join
@@ -11,38 +10,70 @@ env = DefaultEnvironment()
 # A full list with the available variables
 # http://www.scons.org/doc/production/HTML/scons-user.html#app-variables
 env.Replace(
-    AR="ar",
-    AS="gcc",
-    CC="gcc",
-    CXX="g++",
-    OBJCOPY="objcopy",
-    RANLIB="ranlib",
+    AR="arm-none-eabi-ar",
+    AS="arm-none-eabi-as",
+    CC="arm-none-eabi-gcc",
+    CXX="arm-none-eabi-g++",
+    OBJCOPY="arm-none-eabi-objcopy",
+    RANLIB="arm-none-eabi-ranlib",
+    SIZETOOL="arm-none-eabi-size",
 
-    ARFLAGS=["..."],
+    ARFLAGS=["rcs"],
 
-    ASFLAGS=["flag1", "flag2", "flagN"],
-    CCFLAGS=["flag1", "flag2", "flagN"],
-    CXXFLAGS=["flag1", "flag2", "flagN"],
-    LINKFLAGS=["flag1", "flag2", "flagN"],
+    ASFLAGS=["-x", "assembler-with-cpp"],
+    CCFLAGS=[
+             "-I.",
+             "-g",
+             "-Iinc",
+             "-fsingle-precision-constant",
+             "-Wall",
+             "-Wextra",
+             "-march=armv6s-m",
+             "-mthumb",
+             "-mfloat-abi=soft",
+             "-fno-builtin",
+             "-ffunction-sections",
+             "-fdata-sections",
+             "-fno-common",
+             "-fomit-frame-pointer",
+             "-nostdlib",
+             "-Os"],
+    CXXFLAGS=[
+              "-std=c++11",
+              "-fno-rtti",
+              "-fno-exceptions"],
+    LINKFLAGS=[
+              "-fsingle-precision-constant",
+              "-g",
+              "-mcpu=cortex-m0plus",
+              "-mfloat-abi=soft",
+              "-mthumb",
+              "-fno-builtin",
+              "-ffunction-sections",
+              "-fdata-sections",
+              "-fno-common",
+              "-fomit-frame-pointer",
+              "-falign-functions=16",
+              "-Os",
+              "-nostartfiles",
+              "-nostdlib",
+              "-nodefaultlibs", \
+              "-Wl,-Map=output.map",
+              "-Wl,--gc-sections,--no-warn-mismatch,--build-id=none"],
 
-    CPPDEFINES=["DEFINE_1", "DEFINE=2", "DEFINE_N"],
-
-    LIBS=["additional", "libs", "here"],
-
-    UPLOADER=join("$PIOPACKAGES_DIR", "tool-bar", "uploader"),
-    UPLOADCMD="$UPLOADER $SOURCES"
+    CPPDEFINES=["VERSION=\"v1.0\""],
 )
 
 env.Append(
     BUILDERS=dict(
-        ElfToBin=Builder(
+        ElfToHex=Builder(
             action=" ".join([
                 "$OBJCOPY",
                 "-O",
-                "binary",
+                "ihex",
                 "$SOURCES",
                 "$TARGET"]),
-            suffix=".bin"
+            suffix=".hex"
         )
     )
 )
@@ -56,17 +87,11 @@ env.Append(
 target_elf = env.BuildProgram()
 
 #
-# Target: Build the .bin file
+# Target: Build the .hex file
 #
-target_bin = env.ElfToBin(join("$BUILD_DIR", "firmware"), target_elf)
-
-#
-# Target: Upload firmware
-#
-upload = env.Alias(["upload"], target_bin, "$UPLOADCMD")
-AlwaysBuild(upload)
+target_hex = env.ElfToHex(join("$BUILD_DIR", "firmware"), target_elf)
 
 #
 # Target: Define targets
 #
-Default(target_bin)
+Default(target_hex)
