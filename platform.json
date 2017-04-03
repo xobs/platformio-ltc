@@ -6,14 +6,14 @@
   "homepage": "http://chibitronics.com",
   "license": "MIT",
   "engines": {
-    "platformio": "~3.0.0",
+    "platformio": "~3",
     "scons": ">=2.3.0,<2.6.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/xobs/platformio-ltc.git"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "https://sourceforge.net/projects/platformio-storage/files/packages/manifest.json/download",
@@ -43,7 +43,7 @@
     "framework-ltc": {
       "type": "framework",
       "optional": false,
-      "version": "~1.0.0"
+      "version": "~1"
     }
   }
 }
