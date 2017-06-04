@@ -61,6 +61,8 @@ env.Replace(
               "-Wl,--gc-sections,--no-warn-mismatch,--build-id=none"],
 
     CPPDEFINES=["VERSION=\"v1.0\""],
+    PROGNAME="firmware",
+    PROGSUFFIX=".elf",
 )
 
 env.Append(
