@@ -21,9 +21,9 @@
     {
       "framework-ltc": [
         {
-          "url": "https://codeload.github.com/xobs/framework-ltc/zip/v1.0.0",
-          "sha1": "1a0fc1c24b8228a12ec214c5ad5d95435e9cc817",
-          "version": "1.0.0",
+          "url": "https://codeload.github.com/xobs/framework-ltc/zip/1.0.1",
+          "sha1": "e123bef7a59fd5397e51d23af7b888cccc41e1e3",
+          "version": "1.0.1",
           "system": "*"
         }
       ]
