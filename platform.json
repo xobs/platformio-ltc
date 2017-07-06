@@ -1,49 +1,47 @@
 {
-  "name": "ltc",
-  "title": "Love-to-Code",
-  "description": "Love-to-Code modulated audio board",
-  "url": "http://ltc.chibitronics.com",
-  "homepage": "http://chibitronics.com",
-  "license": "MIT",
-  "engines": {
-    "platformio": "^3.0.0",
-    "scons": ">=2.3.0,<2.6.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xobs/platformio-ltc.git"
-  },
-  "version": "1.0.3",
-  "packageRepositories": [
-    "https://dl.bintray.com/platformio/dl-packages/manifest.json",
-    "https://sourceforge.net/projects/platformio-storage/files/packages/manifest.json/download",
-    "http://dl.platformio.org/packages/manifest.json",
-    {
-      "framework-ltc": [
-        {
-          "url": "https://codeload.github.com/xobs/framework-ltc/zip/1.0.1",
-          "sha1": "e123bef7a59fd5397e51d23af7b888cccc41e1e3",
-          "version": "1.0.1",
-          "system": "*"
-        }
-      ]
-    }
-  ],
-  "frameworks": {
-    "ltc": {
-      "package": "framework-ltc",
-      "script": "builder/frameworks/ltc.py"
-    }
-  },
-  "packages": {
-    "toolchain-gccarmnoneeabi": {
-      "type": "toolchain",
-      "version": ">=1.40803.0,<1.40805.0"
+    "name": "ltc",
+    "title": "Love-to-Code",
+    "description": "Love-to-Code modulated audio board",
+    "url": "http://ltc.chibitronics.com",
+    "homepage": "http://chibitronics.com",
+    "license": "MIT",
+    "engines": {
+        "platformio": "^3.0.0",
+        "scons": ">=2.3.0,<2.6.0"
     },
-    "framework-ltc": {
-      "type": "framework",
-      "optional": false,
-      "version": "~1.0.1"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/xobs/platformio-ltc.git"
+    },
+    "version": "1.0.3",
+    "packageRepositories": [
+        "https://dl.bintray.com/platformio/dl-packages/manifest.json",
+        "https://sourceforge.net/projects/platformio-storage/files/packages/manifest.json/download",
+        "http://dl.platformio.org/packages/manifest.json",
+        {
+            "framework-ltc": [{
+                "url": "https://codeload.github.com/xobs/framework-ltc/zip/1.0.1",
+                "sha1": "ec3c310d31d2cf3085c18e9e4f0a55dae1f098e6",
+                "version": "1.0.2",
+                "system": "*"
+            }]
+        }
+    ],
+    "frameworks": {
+        "ltc": {
+            "package": "framework-ltc",
+            "script": "builder/frameworks/ltc.py"
+        }
+    },
+    "packages": {
+        "toolchain-gccarmnoneeabi": {
+            "type": "toolchain",
+            "version": ">=1.40803.0,<1.40805.0"
+        },
+        "framework-ltc": {
+            "type": "framework",
+            "optional": false,
+            "version": "~1.0.2"
+        }
     }
-  }
 }
