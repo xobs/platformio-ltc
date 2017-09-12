@@ -13,15 +13,15 @@
         "type": "git",
         "url": "https://github.com/xobs/platformio-ltc.git"
     },
-    "version": "1.0.7",
+    "version": "1.0.8",
     "packageRepositories": [
         "https://dl.bintray.com/platformio/dl-packages/manifest.json",
         "https://sourceforge.net/projects/platformio-storage/files/packages/manifest.json/download",
         "http://dl.platformio.org/packages/manifest.json",
         {
             "framework-ltc": [{
-                "url": "https://codeload.github.com/xobs/framework-ltc/zip/1.0.2",
-                "sha1": "42755c2358356c0c69c12a01c9bd7dd75c69de35",
+                "url": "https://codeload.github.com/xobs/framework-ltc/zip/1.0.3",
+                "sha1": "22c8bff5907faf7be03e291d6ff8ab0f8f7d5ce5",
                 "version": "1.0.2",
                 "system": "*"
             }]
