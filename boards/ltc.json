@@ -3,6 +3,9 @@
   "frameworks": ["ltc"],
   "name": "Love-to-Code",
   "url": "http://chibitronics.com/",
-  "upload": {},
+  "upload": {
+    "maximum_ram_size": 3072,
+    "maximum_size": 10000
+  },
   "vendor": "Chibitronics"
 }
